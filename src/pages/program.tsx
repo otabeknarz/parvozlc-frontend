@@ -517,6 +517,7 @@ export default function ProgramPage() {
                     >
                       <div className="flex flex-col items-center justify-center gap-8 group">
                         <motion.div
+                          className="relative overflow-hidden rounded-2xl bg-gray-50 dark:bg-gray-800/50 p-8"
                           animate={{
                             boxShadow: [
                               "0 0 0 rgba(0,0,0,0.2)",
@@ -524,7 +525,6 @@ export default function ProgramPage() {
                               "0 0 0 rgba(0,0,0,0.2)",
                             ],
                           }}
-                          className="relative overflow-hidden rounded-2xl bg-gray-50 dark:bg-gray-800/50 p-8"
                           transition={{
                             boxShadow: {
                               duration: 2,
@@ -570,7 +570,7 @@ export default function ProgramPage() {
             </FadeInWhenVisible>
 
             {/* Reserve spot button after content */}
-            <div className="flex justify-center mt-16">
+            <div className="flex justify-center text-center mt-16">
               <motion.div
                 animate={{
                   scale: [1, 1.02, 1],
@@ -603,6 +603,39 @@ export default function ProgramPage() {
                   />
                   <span className="relative z-10">Reserve a spot</span>
                 </Button>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.7, 
+                    delay: 0.5,
+                    type: "spring",
+                    stiffness: 90
+                  }}
+                  className="flex justify-center items-center w-full mt-8"
+                >
+                  <div className="w-full max-w-2xl">
+                    <motion.div
+                      className="text-center p-6 sm:p-8 bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-800 rounded-2xl shadow-xl"
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: 0.7,
+                        type: "spring",
+                        stiffness: 100
+                      }}
+                    >
+                      <p className="text-xl sm:text-2xl font-bold text-red-800 dark:text-red-300 tracking-tight flex items-center justify-center">
+                        <span className="text-3xl mr-4">⏰</span>
+                        Deadline to Apply
+                      </p>
+                      <p className="text-2xl sm:text-3xl font-extrabold text-red-900 dark:text-red-200 mt-3 tracking-wide">
+                        9th February 22:00
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
 
@@ -719,12 +752,12 @@ export default function ProgramPage() {
                         >
                           <motion.img
                             alt={`Icon ${index + 1}`}
-                            className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain"
-                            src={item.icon}
                             animate={{
                               scale: [1, 1.15, 0.95, 1.15, 1],
                               y: [0, -4, 2, -4, 0]
                             }}
+                            className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain"
+                            src={item.icon}
                             transition={{
                               duration: 2,
                               repeat: Infinity,
@@ -750,7 +783,7 @@ export default function ProgramPage() {
                           )}
                         </div>
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-violet-400/10 dark:from-blue-500/10 dark:to-violet-500/10"
+                          className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500/10 to-violet-500/10 dark:from-blue-500/10 dark:to-violet-500/10 opacity-70"
                           animate={{
                             opacity: [0.5, 0.8, 0.5],
                           }}
@@ -833,6 +866,27 @@ export default function ProgramPage() {
                 </div>
               </div>
             </FadeInWhenVisible>
+          </div>
+          <div className="max-w-2xl">
+            <motion.div
+              className="text-center p-6 sm:p-8 bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-800 rounded-2xl shadow-xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.7,
+                type: "spring",
+                stiffness: 100
+              }}
+            >
+              <p className="text-xl sm:text-2xl font-bold text-red-800 dark:text-red-300 tracking-tight flex items-center justify-center">
+                <span className="text-3xl mr-4">⏰</span>
+                Deadline to Apply
+              </p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-red-900 dark:text-red-200 mt-3 tracking-wide">
+                9th February 22:00
+              </p>
+            </motion.div>
           </div>
         </section>
       </div>
