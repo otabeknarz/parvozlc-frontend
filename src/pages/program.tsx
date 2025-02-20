@@ -110,7 +110,7 @@ export default function ProgramPage() {
   return (
     <DefaultLayout>
       <ScrollProgressBar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto lg:px-8 relative overflow-hidden">
         {/* Background Blur Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -154,7 +154,7 @@ export default function ProgramPage() {
           />
         </div>
 
-        <section className="flex flex-col items-center justify-center gap-16 sm:gap-24 lg:gap-32 py-12 sm:py-16 lg:py-24 relative">
+        <section className="flex flex-col items-center justify-center gap-16 px-6 sm:gap-24 lg:gap-32 py-12 sm:py-16 lg:py-24 relative">
           {/* Logos */}
           <div className="flex flex-col items-center justify-center gap-16 w-full">
             <div className="flex items-center justify-center gap-4 sm:gap-8 sm:gap-12">
@@ -294,7 +294,7 @@ export default function ProgramPage() {
           <div className="space-y-24 sm:space-y-32 lg:space-y-48 mt-16 sm:mt-24 lg:mt-32">
             {/* Main Mentor */}
             <FadeInWhenVisible variant="slideUp">
-              <div className="flex flex-col lg:flex-row items-start justify-between gap-16 w-full">
+              <div className="flex flex-col lg:flex-row px-6 items-start justify-between gap-16 w-full">
                 <div className="flex flex-col gap-8 items-center text-center lg:w-1/3">
                   <h2
                     className={title({
@@ -390,7 +390,7 @@ export default function ProgramPage() {
 
             {/* Guide Mentor */}
             <FadeInWhenVisible>
-              <div className="flex flex-col-reverse lg:flex-row items-start justify-between gap-16 w-full">
+              <div className="flex flex-col-reverse lg:flex-row px-6 items-start justify-between gap-16 w-full">
                 <div className="flex flex-col gap-8 lg:w-2/3">
                   <div className="space-y-6">
                     <FadeInWhenVisible delay={0.1} variant="fade">
@@ -569,73 +569,125 @@ export default function ProgramPage() {
               </div>
             </FadeInWhenVisible>
 
-            {/* Reserve spot button after content */}
-            <div className="flex justify-center text-center mt-16">
+            {/* Join the waitlist section - Updated with elegant styling */}
+            <div className="flex justify-center text-center mt-24 sm:mt-32">
               <motion.div
                 animate={{
-                  scale: [1, 1.02, 1],
+                  y: [0, -5, 0],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
+                className="flex flex-col items-center gap-12 w-full max-w-4xl relative"
               >
-                <Button
-                  as="a"
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSd6AWKN7TyfWaPFtU1XsfyhcuNghMJ-UDEF7vZMBvoMZwvjIw/viewform?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="lg"
-                  radius="lg"
-                  className="text-xl px-16 py-8 font-medium bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 text-white hover:opacity-90 relative overflow-hidden"
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-violet-400/20 to-blue-400/20"
-                    animate={{
-                      x: ['-100%', '100%'],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  />
-                  <span className="relative z-10">Reserve a spot</span>
-                </Button>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.7, 
-                    delay: 0.5,
-                    type: "spring",
-                    stiffness: 90
-                  }}
-                  className="flex justify-center items-center w-full mt-8"
-                >
-                  <div className="w-full max-w-2xl">
+                {/* Decorative background elements */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-violet-500/5 to-pink-500/5 dark:from-blue-500/10 dark:via-violet-500/10 dark:to-pink-500/10 rounded-3xl blur-3xl" />
+                
+                <div className="px-6 relative space-y-12 w-full bg-gradient-to-br from-white/80 via-white/70 to-white/80 dark:from-gray-900/80 dark:via-gray-900/70 dark:to-gray-900/80 rounded-3xl p-12 sm:p-16 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 shadow-xl">
+                  {/* Main content */}
+                  <div className="space-y-8">
                     <motion.div
-                      className="text-center p-6 sm:p-8 bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-800 rounded-2xl shadow-xl"
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ 
-                        duration: 0.6, 
-                        delay: 0.7,
-                        type: "spring",
-                        stiffness: 100
-                      }}
+                      className="flex flex-col items-center gap-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7 }}
                     >
-                      <p className="text-xl sm:text-2xl font-bold text-red-800 dark:text-red-300 tracking-tight flex items-center justify-center">
-                        <span className="text-3xl mr-4">⏰</span>
-                        Deadline to Apply
-                      </p>
-                      <p className="text-2xl sm:text-3xl font-extrabold text-red-900 dark:text-red-200 mt-3 tracking-wide">
-                        9th February 22:00
-                      </p>
+                      <div className="relative">
+                        <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 dark:from-blue-400 dark:via-violet-400 dark:to-pink-400 bg-clip-text text-transparent">
+                          Join Our Waitlist
+                        </h3>
+                        <motion.div
+                          className="absolute -top-8 -right-8 text-4xl"
+                          animate={{
+                            rotate: [0, 20, -20, 20, 0],
+                            scale: [1, 1.2, 1, 1.2, 1],
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
+                        >
+                          ✨
+                        </motion.div>
+                      </div>
+                      
+                      <Button
+                        as="a"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSd6AWKN7TyfWaPFtU1XsfyhcuNghMJ-UDEF7vZMBvoMZwvjIw/viewform?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="lg"
+                        radius="full"
+                        className="text-xl sm:text-2xl px-16 py-8 font-medium bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 text-white hover:opacity-90 relative overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl backdrop-blur-sm"
+                      >
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/0 to-white/20"
+                          animate={{
+                            x: ['-200%', '200%'],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                        />
+                        <span className="relative z-10">Join the waitlist!</span>
+                      </Button>
+                    </motion.div>
+
+                    {/* Status message */}
+                    <motion.div
+                      className="space-y-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7, delay: 0.2 }}
+                    >
+                      <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent" />
+                      
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="flex items-center gap-3">
+                          <motion.span 
+                            className="text-2xl"
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              rotate: [-10, 10, -10, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            🌟
+                          </motion.span>
+                          <p className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-200">
+                            Program Status
+                          </p>
+                          <motion.span 
+                            className="text-2xl"
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              rotate: [10, -10, 10, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            🌟
+                          </motion.span>
+                        </div>
+                        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+                          Enrollment for the 1st cohort is closed. We will re-open the program soon!
+                        </p>
+                      </div>
                     </motion.div>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             </div>
 
@@ -828,7 +880,7 @@ export default function ProgramPage() {
                     initial={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    P.s: There are 5 spots available in the program and already 2 are sold. So, hurry up!
+                    Enrollment for the 1st cohort is closed. We will re-open the program soon!
                   </motion.p>
                   <motion.div
                     animate={{
@@ -846,13 +898,13 @@ export default function ProgramPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       size="lg"
-                      radius="lg"
-                      className="text-xl px-16 py-8 font-medium bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 text-white hover:opacity-90 relative overflow-hidden"
+                      radius="full"
+                      className="text-xl sm:text-2xl px-16 py-8 font-medium bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 text-white hover:opacity-90 relative overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl backdrop-blur-sm"
                     >
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-violet-400/20 to-blue-400/20"
+                        className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/0 to-white/20"
                         animate={{
-                          x: ['-100%', '100%'],
+                          x: ['-200%', '200%'],
                         }}
                         transition={{
                           duration: 3,
@@ -860,33 +912,12 @@ export default function ProgramPage() {
                           ease: "linear",
                         }}
                       />
-                      <span className="relative z-10">Reserve a spot</span>
+                      <span className="relative z-10">Join the waitlist!</span>
                     </Button>
                   </motion.div>
                 </div>
               </div>
             </FadeInWhenVisible>
-          </div>
-          <div className="max-w-2xl">
-            <motion.div
-              className="text-center p-6 sm:p-8 bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-800 rounded-2xl shadow-xl"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.7,
-                type: "spring",
-                stiffness: 100
-              }}
-            >
-              <p className="text-xl sm:text-2xl font-bold text-red-800 dark:text-red-300 tracking-tight flex items-center justify-center">
-                <span className="text-3xl mr-4">⏰</span>
-                Deadline to Apply
-              </p>
-              <p className="text-2xl sm:text-3xl font-extrabold text-red-900 dark:text-red-200 mt-3 tracking-wide">
-                9th February 22:00
-              </p>
-            </motion.div>
           </div>
         </section>
       </div>
