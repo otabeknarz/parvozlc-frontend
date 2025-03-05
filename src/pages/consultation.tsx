@@ -1,7 +1,7 @@
 import { motion, useAnimation, useScroll, useSpring } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import { Button } from "@nextui-org/react";
+import { Avatar, Button } from "@nextui-org/react";
 
 import { title, subtitle } from "@/components/primitives.ts";
 import DefaultLayout from "@/layouts/default";
@@ -123,7 +123,7 @@ export default function ConsultationPage() {
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
           <motion.div
@@ -136,7 +136,7 @@ export default function ConsultationPage() {
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
           <motion.div
@@ -149,7 +149,7 @@ export default function ConsultationPage() {
             transition={{
               duration: 9,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         </div>
@@ -183,7 +183,8 @@ export default function ConsultationPage() {
                   initial={{ opacity: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  Expert advice on building Ivy-level extracurriculars and honors by Azizbek (Harvard class of 2029)
+                  Expert advice on building Ivy-level extracurriculars and
+                  honors by Azizbek (Harvard class of 2029)
                 </motion.p>
               </motion.div>
             </div>
@@ -199,17 +200,17 @@ export default function ConsultationPage() {
                 animate={{
                   scale: [1, 1.08, 0.95, 1.08, 1],
                   rotate: [0, 3, -3, 3, 0],
-                  y: [0, -8, 0, -8, 0]
+                  y: [0, -8, 0, -8, 0],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.15,
                   rotate: [0, 5, -5, 5, 0],
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
               />
               <div className="flex flex-col gap-8 items-center text-center sm:text-left max-w-2xl">
@@ -227,7 +228,10 @@ export default function ConsultationPage() {
                       "text-lg sm:text-xl lg:text-2xl leading-relaxed font-normal",
                   })}
                 >
-                  Consultations are for high school and gap year students who are planning to apply to TOP US universities. Meetings are aimed at advising the students on how to prepare their portfolio to a top-notch level.
+                  Consultations are for high school and gap year students who
+                  are planning to apply to TOP US universities. Meetings are
+                  aimed at advising the students on how to prepare their
+                  portfolio to a top-notch level.
                 </p>
               </div>
             </div>
@@ -282,35 +286,39 @@ export default function ConsultationPage() {
                     {[
                       {
                         title: "Portfolio Development Expert",
-                        description: "Holds valuable expertise in building and scaling projects, activities, and honors that stand out in college applications"
+                        description:
+                          "Holds valuable expertise in building and scaling projects, activities, and honors that stand out in college applications",
                       },
                       {
                         title: "Leadership Experience",
-                        description: "Manager of 'Ibrat Debate' - Uzbekistan's biggest debate network, leading 100+ volunteers and engaging 2000+ youth in nearly 100 debates across 14 regions"
+                        description:
+                          "Manager of 'Ibrat Debate' - Uzbekistan's biggest debate network, leading 100+ volunteers and engaging 2000+ youth in nearly 100 debates across 14 regions",
                       },
                       {
                         title: "Project Management",
-                        description: "Worked in Executive Management positions at Swap Up, TEDxFerPSYouth, Young Writers Society, and many other successful projects"
+                        description:
+                          "Worked in Executive Management positions at Swap Up, TEDxFerPSYouth, Young Writers Society, and many other successful projects",
                       },
                       {
                         title: "Research & Internships",
-                        description: "Conducted academic research and landed internships at government and non-government agencies, building a comprehensive portfolio"
-                      }
+                        description:
+                          "Conducted academic research and landed internships at government and non-government agencies, building a comprehensive portfolio",
+                      },
                     ].map((item, index) => (
                       <FadeInWhenVisible
                         key={index}
                         delay={index * 0.1}
                         variant="fade"
                       >
-                        <motion.div 
+                        <motion.div
                           className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/90 via-white/95 to-white/90 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-800/90 p-8 sm:p-10 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-500 shadow-lg hover:shadow-xl"
-                          whileHover={{ 
+                          whileHover={{
                             scale: 1.02,
-                            transition: { duration: 0.4 }
+                            transition: { duration: 0.4 },
                           }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] via-violet-500/[0.02] to-pink-500/[0.02] dark:from-blue-500/[0.05] dark:via-violet-500/[0.05] dark:to-pink-500/[0.05]" />
-                          
+
                           <div className="relative space-y-4">
                             <h3 className="font-medium text-xl sm:text-2xl text-gray-800 dark:text-gray-100 tracking-wide">
                               {item.title}
@@ -362,12 +370,14 @@ export default function ConsultationPage() {
                     {
                       icon: "/docs.webp",
                       title: "Portfolio Analyzer Sheet",
-                      description: "Fill out a detailed form covering your current activities, achievements, and future aspirations to help us understand your profile better"
+                      description:
+                        "Fill out a detailed form covering your current activities, achievements, and future aspirations to help us understand your profile better",
                     },
                     {
                       icon: "/idea-lamp.webp",
                       title: "Personalized Review",
-                      description: "Azizbek thoroughly analyzes your sheet and prepares tailored suggestions to maximize the impact of your portfolio"
+                      description:
+                        "Azizbek thoroughly analyzes your sheet and prepares tailored suggestions to maximize the impact of your portfolio",
                     },
                   ].map((item, index) => (
                     <FadeInWhenVisible
@@ -375,16 +385,16 @@ export default function ConsultationPage() {
                       delay={index * 0.1}
                       variant="fade"
                     >
-                      <motion.div 
+                      <motion.div
                         className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/90 via-white/95 to-white/90 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-800/90 p-10 sm:p-12 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-500 shadow-lg hover:shadow-xl"
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.02,
-                          transition: { duration: 0.4 }
+                          transition: { duration: 0.4 },
                         }}
                       >
                         {/* Enhanced gradient overlay */}
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] via-violet-500/[0.02] to-pink-500/[0.02] dark:from-blue-500/[0.05] dark:via-violet-500/[0.05] dark:to-pink-500/[0.05]" />
-                        
+
                         <div className="relative flex flex-col items-center gap-10 flex-1">
                           {/* Icon container */}
                           <motion.div
@@ -402,13 +412,13 @@ export default function ConsultationPage() {
                               alt={`Icon ${index + 1}`}
                               className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
                               src={item.icon}
-                              whileHover={{ 
+                              whileHover={{
                                 scale: 1.1,
                                 rotate: [-5, 5, -5, 0],
-                                transition: { duration: 0.4 }
+                                transition: { duration: 0.4 },
                               }}
                             />
-                            
+
                             {/* Subtle glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20 blur-2xl -z-10" />
                           </motion.div>
@@ -465,17 +475,20 @@ export default function ConsultationPage() {
                     {
                       icon: "/online-meeting.webp",
                       title: "Portfolio Review",
-                      description: "In-depth analysis of your current activities with specific recommendations for improvements and additions to strengthen your profile"
+                      description:
+                        "In-depth analysis of your current activities with specific recommendations for improvements and additions to strengthen your profile",
                     },
                     {
                       icon: "/qa.webp",
                       title: "Interactive Q&A",
-                      description: "Comprehensive discussion addressing all your questions about portfolio development, extracurriculars, and application strategy"
+                      description:
+                        "Comprehensive discussion addressing all your questions about portfolio development, extracurriculars, and application strategy",
                     },
                     {
                       icon: "/todo.webp",
                       title: "Action Plan Creation",
-                      description: "Collaborate with Azizbek to develop a detailed roadmap of actionable steps to enhance your portfolio based on the consultation"
+                      description:
+                        "Collaborate with Azizbek to develop a detailed roadmap of actionable steps to enhance your portfolio based on the consultation",
                     },
                   ].map((item, index) => (
                     <FadeInWhenVisible
@@ -484,15 +497,15 @@ export default function ConsultationPage() {
                       variant="fade"
                       className="h-full"
                     >
-                      <motion.div 
+                      <motion.div
                         className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/90 via-white/95 to-white/90 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-800/90 p-10 sm:p-12 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-500 shadow-lg hover:shadow-xl h-full flex"
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.02,
-                          transition: { duration: 0.4 }
+                          transition: { duration: 0.4 },
                         }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] via-violet-500/[0.02] to-pink-500/[0.02] dark:from-blue-500/[0.05] dark:via-violet-500/[0.05] dark:to-pink-500/[0.05]" />
-                        
+
                         <div className="relative flex flex-col items-center gap-10 flex-1">
                           {/* Icon container */}
                           <motion.div
@@ -510,13 +523,13 @@ export default function ConsultationPage() {
                               alt={`Icon ${index + 1}`}
                               className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
                               src={item.icon}
-                              whileHover={{ 
+                              whileHover={{
                                 scale: 1.1,
                                 rotate: [-5, 5, -5, 0],
-                                transition: { duration: 0.4 }
+                                transition: { duration: 0.4 },
                               }}
                             />
-                            
+
                             {/* Subtle glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20 blur-2xl -z-10" />
                           </motion.div>
@@ -569,20 +582,17 @@ export default function ConsultationPage() {
                   After consultation
                 </h2>
                 <div className="flex justify-center">
-                  <FadeInWhenVisible
-                    delay={0.1}
-                    variant="fade"
-                  >
-                    <motion.div 
+                  <FadeInWhenVisible delay={0.1} variant="fade">
+                    <motion.div
                       className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/90 via-white/95 to-white/90 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-800/90 p-10 sm:p-12 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-500 shadow-lg hover:shadow-xl"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.02,
-                        transition: { duration: 0.4 }
+                        transition: { duration: 0.4 },
                       }}
                     >
                       {/* Enhanced gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] via-violet-500/[0.02] to-pink-500/[0.02] dark:from-blue-500/[0.05] dark:via-violet-500/[0.05] dark:to-pink-500/[0.05]" />
-                      
+
                       <div className="relative flex flex-col items-center gap-12 max-w-4xl mx-auto">
                         {/* Icon container */}
                         <motion.div
@@ -600,12 +610,12 @@ export default function ConsultationPage() {
                             alt="Group of people"
                             className="w-full h-auto max-w-3xl mx-auto object-contain"
                             src="/group-of-people.png"
-                            whileHover={{ 
+                            whileHover={{
                               scale: 1.05,
-                              transition: { duration: 0.4 }
+                              transition: { duration: 0.4 },
                             }}
                           />
-                          
+
                           {/* Subtle glow effect */}
                           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20 blur-2xl -z-10" />
                         </motion.div>
@@ -617,20 +627,30 @@ export default function ConsultationPage() {
                           </h3>
                           <div className="space-y-4">
                             <p className="font-normal text-xl sm:text-2xl text-gray-600 dark:text-gray-300 tracking-wide max-w-2xl mx-auto leading-relaxed">
-                              Get exclusive access to the "Parvoz Student" group where:
+                              Get exclusive access to the "Parvoz Student" group
+                              where:
                             </p>
                             <ul className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 space-y-3 max-w-2xl mx-auto">
                               <li className="flex items-center justify-center gap-2">
-                                <span className="text-blue-500 dark:text-blue-400">•</span>
-                                Azizbek provides ongoing support and answers your questions
+                                <span className="text-blue-500 dark:text-blue-400">
+                                  •
+                                </span>
+                                Azizbek provides ongoing support and answers
+                                your questions
                               </li>
                               <li className="flex items-center justify-center gap-2">
-                                <span className="text-blue-500 dark:text-blue-400">•</span>
-                                New opportunities to enhance your portfolio are regularly shared
+                                <span className="text-blue-500 dark:text-blue-400">
+                                  •
+                                </span>
+                                New opportunities to enhance your portfolio are
+                                regularly shared
                               </li>
                               <li className="flex items-center justify-center gap-2">
-                                <span className="text-blue-500 dark:text-blue-400">•</span>
-                                Connect with like-minded students on similar journeys
+                                <span className="text-blue-500 dark:text-blue-400">
+                                  •
+                                </span>
+                                Connect with like-minded students on similar
+                                journeys
                               </li>
                             </ul>
                           </div>
@@ -661,7 +681,151 @@ export default function ConsultationPage() {
             </FadeInWhenVisible>
 
             {/* Rates section */}
-            
+            <FadeInWhenVisible variant="scale">
+              <div className="flex flex-col w-full mt-16 sm:mt-24 lg:mt-32">
+                <h2
+                  className={title({
+                    color: "violet",
+                    className:
+                      "text-center text-4xl sm:text-5xl lg:text-6xl mb-16 sm:mb-24 font-medium tracking-tight bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 dark:from-blue-400 dark:via-violet-400 dark:to-pink-400 bg-clip-text text-transparent",
+                  })}
+                >
+                  What students say
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+                  {[
+                    {
+                      name: "Raxmatullayeva Madinabonu",
+                      location: "Tashkent, Uzbekistan",
+                      rating: 5,
+                      comment:
+                        "I wanted to express my gratitude for the guidance you provided during our consultation session. It was incredibly insightful and helped me address many of the questions I had about building a strong extracurricular portfolio.Your detailed approach to analyzing each of my activities and suggesting ways to make them impactful and unique was exactly what I needed. I truly appreciate how you took the time to focus on each aspect, offering practical and creative ideas to help me stand out. The session has given me a clear understanding of my responsibilities and a well-defined to-do list, which includes the most important tasks for achieving my goals.Additionally, I found it valuable to learn about new programs and opportunities I had not known about before. This broadened my perspective and gave me fresh ideas on how I can further enhance my profile.Thanks to your advice, I now feel more confident and motivated to move forward with my plans. I greatly value the time and expertise you shared, and I’m excited to implement the suggestions you provided. Once again, thank you for your support—it was a pleasure working with you!",
+                      messageLink: "https://t.me/pafeedback/2",
+                    },
+                    {
+                      name: "Sevinch Elmuradova",
+                      location: "Bukhara, Uzbekistan",
+                      rating: 5,
+                      comment:
+                        "The consultation is definitely worth investing your money in! honestly, i got a lot information and ideas to accelerate my portfolio, thanks to mr. Azizbek's personalized approach. it really did exceed my expectations. thank u!",
+                      messageLink: "https://t.me/pafeedback/3",
+                    },
+                    {
+                      name: "Nuriddinov Abdulhamid",
+                      location: "Sirdaryo, Uzbekistan",
+                      rating: 5,
+                      comment:
+                        "Thank you very much for such an amazing consultation. At the beginning, I was stressed that 50 minutes wouldn't be enough. However, because you took notes beforehand and managed the time very efficiently, I got answers to all of my questions for which I'm very thankful. Although it was not a problem in my case, I noticed that you speak faster than the average human can understand, so my only suggestion is to ask the person if they are comfortable with your speed and language. Again, thank you for your support!",
+                      messageLink: "https://t.me/pafeedback/4",
+                    },
+                    {
+                      name: "Azizbek Burkhanov ",
+                      location: "Tashkent, Uzbekistan",
+                      rating: 5,
+                      comment:
+                        "i’m glad for the consultation and the ideas you provided me to develop my ECs and Honours. Before the cons i didn’t even think to look at my ECs at all larger scale and develop them into a bigger activities. Thank you for your help and time!!",
+                      messageLink: "https://t.me/pafeedback/5",
+                    },
+                    {
+                      name: "Laziza Ikromova",
+                      location: "Tashkent, Uzbekistan",
+                      rating: 5,
+                      comment:
+                        "Thank you very much for the consultation. this is worth buying , because it was obvious that you were prepared and took notes. The session gave me ideas on how to improve my portfolio. Thanks again for your support and help",
+                      messageLink: "https://t.me/pafeedback/6",
+                    },
+                    {
+                      name: "Rustamboyov Behruz",
+                      location: "Tashkent, Uzbekistan",
+                      rating: 5,
+                      comment:
+                        "Aziz aka I really appreciate the work you've done. While talking with you I even didn't notice how time has passed. I'm really grateful to have bought your consultation, which is affordable and superior to the other ones. You showed me the true path that can lead me to achieve my goals and build strong portfolio. Frankly, I can't express the feelings I've procured from the consultation, just ineffable. Further, you gave an exceptional motivation for me. Thank you so much. Glad to meet you!",
+                      messageLink: "https://t.me/pafeedback/7",
+                    },
+                  ].map((testimonial, index) => (
+                    <motion.div
+                      key={index}
+                      className="h-full"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <a
+                        href={testimonial.messageLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block h-full"
+                      >
+                        <motion.div
+                          className="bg-white/80 dark:bg-gray-800/80 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group h-full flex flex-col"
+                          whileHover={{ scale: 1.02 }}
+                        >
+                          <div className="flex items-start gap-4">
+                            <Avatar
+                              alt={testimonial.name}
+                              className="w-12 h-12 rounded-full bg-gray-100"
+                            />
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                    {testimonial.name}
+                                  </h4>
+                                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                                    {testimonial.location}
+                                  </p>
+                                </div>
+                                <svg
+                                  className="w-5 h-5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                                  fill="currentColor"
+                                  viewBox="0 0 20 20"
+                                >
+                                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+
+                          <p className="mt-4 flex-grow text-gray-600 dark:text-gray-300">
+                            {testimonial.comment.slice(0, 300)}...
+                          </p>
+
+                          <div className="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <div className="flex gap-1">
+                              {Array.from({ length: testimonial.rating }).map(
+                                (_, i) => (
+                                  <svg
+                                    key={i}
+                                    className="w-5 h-5 text-yellow-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                  >
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                  </svg>
+                                )
+                              )}
+                            </div>
+                            <div className="flex items-center text-sm text-blue-500">
+                              <svg
+                                className="w-4 h-4 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.25 17.5v-4.75h-2.5v4.75h-3.75l5-5 5 5h-3.75zm0-11v4.75h2.5V6.5h3.75l-5-5-5 5h3.75z" />
+                              </svg>
+                              See on Telegram
+                            </div>
+                          </div>
+                        </motion.div>
+                      </a>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </FadeInWhenVisible>
 
             {/* Wanna join? section - Updated with new pricing */}
             <FadeInWhenVisible>
@@ -670,7 +834,7 @@ export default function ConsultationPage() {
                   className={title({
                     color: "blue",
                     className:
-                      "text-center text-4xl sm:text-5xl lg:text-6xl mb-16 sm:mb-24 font-medium tracking-tight letter-spacing-[-0.02em] relative"
+                      "text-center text-4xl sm:text-5xl lg:text-6xl mb-16 sm:mb-24 font-medium tracking-tight letter-spacing-[-0.02em] relative",
                   })}
                 >
                   Wanna join?
@@ -680,7 +844,8 @@ export default function ConsultationPage() {
                     {
                       icon: "/lighting.png",
                       title: "a 50-minute consultation",
-                      description: "One-on-one session with personalized guidance",
+                      description:
+                        "One-on-one session with personalized guidance",
                     },
                     {
                       icon: "/lighting.png",
@@ -693,16 +858,16 @@ export default function ConsultationPage() {
                       delay={index * 0.1}
                       variant="fade"
                     >
-                      <motion.div 
+                      <motion.div
                         className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/90 via-white/95 to-white/90 dark:from-gray-800/90 dark:via-gray-800/95 dark:to-gray-800/90 p-10 sm:p-12 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-500 shadow-lg hover:shadow-xl h-full"
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.02,
-                          transition: { duration: 0.4 }
+                          transition: { duration: 0.4 },
                         }}
                       >
                         {/* Enhanced gradient overlay */}
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] via-violet-500/[0.02] to-pink-500/[0.02] dark:from-blue-500/[0.05] dark:via-violet-500/[0.05] dark:to-pink-500/[0.05]" />
-                        
+
                         <div className="relative flex items-center gap-8 h-full">
                           <motion.div
                             className="relative flex-shrink-0"
@@ -719,7 +884,7 @@ export default function ConsultationPage() {
                               alt={`Icon ${index + 1}`}
                               animate={{
                                 scale: [1, 1.1, 0.95, 1.1, 1],
-                                y: [0, -4, 2, -4, 0]
+                                y: [0, -4, 2, -4, 0],
                               }}
                               className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
                               src={item.icon}
@@ -729,7 +894,7 @@ export default function ConsultationPage() {
                                 ease: "easeInOut",
                               }}
                             />
-                            
+
                             {/* Subtle glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20 blur-xl -z-10" />
                           </motion.div>
@@ -794,7 +959,8 @@ export default function ConsultationPage() {
                       initial={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      There are only 3-5 spots for consultations each weekend. Thus, hurry up to reserve your spot
+                      There are only 3-5 spots for consultations each weekend.
+                      Thus, hurry up to reserve your spot
                     </motion.p>
 
                     <Button
@@ -808,11 +974,11 @@ export default function ConsultationPage() {
                       onPress={() => {
                         // Track the click event with Plausible
                         if (window.plausible) {
-                          window.plausible('Reserve Spot Click', {
+                          window.plausible("Reserve Spot Click", {
                             props: {
-                              location: 'Consultation Page',
-                              destination: 'Final Note section - Google Form'
-                            }
+                              location: "Consultation Page",
+                              destination: "Final Note section - Google Form",
+                            },
                           });
                         }
                       }}
@@ -820,7 +986,7 @@ export default function ConsultationPage() {
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/0 to-white/20"
                         animate={{
-                          x: ['-200%', '200%'],
+                          x: ["-200%", "200%"],
                         }}
                         transition={{
                           duration: 3,
