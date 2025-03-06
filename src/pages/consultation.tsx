@@ -18,14 +18,6 @@ interface Testimonial {
 
 const testimonialData: Testimonial[] = [
   {
-    name: "Raxmatullayeva Madinabonu",
-    location: "Tashkent, Uzbekistan",
-    rating: 5,
-    comment:
-      "I wanted to express my gratitude for the guidance you provided during our consultation session. It was incredibly insightful and helped me address many of the questions I had about building a strong extracurricular portfolio.Your detailed approach to analyzing each of my activities and suggesting ways to make them impactful and unique was exactly what I needed. I truly appreciate how you took the time to focus on each aspect, offering practical and creative ideas to help me stand out. The session has given me a clear understanding of my responsibilities and a well-defined to-do list, which includes the most important tasks for achieving my goals.Additionally, I found it valuable to learn about new programs and opportunities I had not known about before. This broadened my perspective and gave me fresh ideas on how I can further enhance my profile.Thanks to your advice, I now feel more confident and motivated to move forward with my plans. I greatly value the time and expertise you shared, and I'm excited to implement the suggestions you provided. Once again, thank you for your support—it was a pleasure working with you!",
-    messageLink: "https://t.me/pafeedback/2",
-  },
-  {
     name: "Sevinch Elmuradova",
     location: "Bukhara, Uzbekistan",
     rating: 5,
@@ -42,14 +34,6 @@ const testimonialData: Testimonial[] = [
       "Thank you very much for such an amazing consultation. At the beginning, I was stressed that 50 minutes wouldn't be enough. However, because you took notes beforehand and managed the time very efficiently, I got answers to all of my questions for which I'm very thankful. Although it was not a problem in my case, I noticed that you speak faster than the average human can understand, so my only suggestion is to ask the person if they are comfortable with your speed and language. Again, thank you for your support!",
     messageLink: "https://t.me/pafeedback/4",
     image: "/abdulhamid.jpg",
-  },
-  {
-    name: "Azizbek Burkhanov ",
-    location: "Tashkent, Uzbekistan",
-    rating: 5,
-    comment:
-      "i'm glad for the consultation and the ideas you provided me to develop my ECs and Honours. Before the cons i didn't even think to look at my ECs at all larger scale and develop them into a bigger activities. Thank you for your help and time!!",
-    messageLink: "https://t.me/pafeedback/5",
   },
   {
     name: "Laziza Ikromova",
@@ -79,14 +63,6 @@ const testimonialData: Testimonial[] = [
     image: "/muyassar.jpg",
   },
   {
-    name: "Atabekov Amirbek",
-    location: "Tashkent, Uzbekistan",
-    rating: 5,
-    comment:
-      "I really appreciate our consultation - it was incredibly helpful! You showed me a clear way to make my college portfolio stand out, and your insights about my passion project and the research program allowed me to take a fresh look at the situation. Your recommendations really inspired me, and now I feel much more confident in my approach. I am grateful for your guidance and will try my best to get into uni. And you are the person that inspires me to keep going.",
-    messageLink: "https://t.me/pafeedback/9",
-  },
-  {
     name: "Ravshanbekov Jamshidbek",
     location: "Namangan, Uzbekistan",
     rating: 5,
@@ -94,14 +70,6 @@ const testimonialData: Testimonial[] = [
       "Wow. That was amazing. I got all the useful insights, ideas. Thank you very much for sparing time to give advice and guide me. I wish all the best for you, your team, your family. You helped a lot!! 👍",
     messageLink: "https://t.me/pafeedback/10",
     image: "/jamshidbek.jpg",
-  },
-  {
-    name: "Rajabova Bibinur",
-    location: "Khorezm, Uzbekistan",
-    rating: 5,
-    comment:
-      "I really want to thank you for the meeting. That was really helpful for boosting my portfolio. I got really valuable insights, especially about doing research, internships, and launching my passion project. I was a bit confused about how to manage everything at the same time because I am a gap year student.I hope I can do amazing extracurriculars by the guide you gave me. I appreciate it. Good luck with your future!",
-    messageLink: "https://t.me/pafeedback/11",
   },
   {
     name: "Abdulahad Ne'matjonov",
@@ -121,23 +89,6 @@ Really loved it and looking forward to working with Azizbek in the near future`,
     image: "/abdulahad.jpg",
   },
   {
-    name: "Saydullayeva Irodabonu",
-    location: "Surkhondaryo, Uzbekistan",
-    rating: 5,
-    comment:
-      "Mr.Azizbek! I just wanted to say a huge thank you for your incredible guidance during our consultation. Your insights truly helped me see my portfolio and application from a new perspective, and I now feel much more confident in my direction. I really appreciate your thoughtful advice and the way you broke things down so clearly. Your support means a lot, and I’m grateful for the time and effort you put into helping me. Looking forward to putting your advice into action!",
-    messageLink: "https://t.me/pafeedback/13",
-  },
-  {
-    name: "Elif Akhmedova",
-    location: "Florida, USA",
-    rating: 5,
-    comment:
-      "My consultation was incredibly insightful, and I highly recommend it to anyone seeking guidance. The session helped me gain a clearer understanding of where I stand with my portfolio, with specific tips on how to improve it and accelerate its development. We also discussed the best timing for me to take the SAT and IELTS, which was really helpful in planning my next steps. In addition, we explored programs that align with my major and personal interests, which has opened up exciting opportunities for me. Together, we also made the important decision on choosing my major, and we discussed internship opportunities that will help me gain valuable experience. I’m grateful for this opportunity, and I feel much more confident moving forward with a well-rounded plan!",
-    messageLink: "https://t.me/pafeedback/14",
-    image: "/elif.jpg",
-  },
-  {
     name: "Feruza Sa'dullayeva",
     location: "Bukhara, Uzbekistan",
     rating: 5,
@@ -145,14 +96,6 @@ Really loved it and looking forward to working with Azizbek in the near future`,
       "Hi I am so glad that I took a lot of information in the consultation .I would really recommend this to others who also wanna get into ivy s and have no idea about what to do. Moreover, I got solid answers to all of my questions. I am sure it will definitely come handy .Thanks a lot ❤️‍🔥",
     messageLink: "https://t.me/pafeedback/15",
     image: "/feruza.jpg",
-  },
-  {
-    name: "Mirsaidov Mirsaid",
-    location: "Tashkent, Uzbekistan",
-    rating: 5,
-    comment:
-      "This consultation helped me boost my confidence regarding university applications and motivated me to keep improving my portfolio in all aspects. I really appreciate how realistically you assess each student’s situation and provide valuable advice on enhancing their portfolio and achievements. Even though I’m in 9th grade, your consultation helped me understand the strengths and weaknesses of my portfolio. I highly recommend your consultations, especially for 10th and 11th graders who need an objective evaluation of their university portfolio. I am truly grateful to you for your motivation and support!",
-    messageLink: "https://t.me/pafeedback/16",
   },
   {
     name: "Bobomurod, Fazliddinov",
@@ -171,6 +114,54 @@ Really loved it and looking forward to working with Azizbek in the near future`,
       "Assalomu aleykum everyone honestly it was first time  I participated in this kind of consultattion  and  it is just IMPRRESSIVE .why? because everytime you spend Here or every piece of advice canʼt be find on the internet.Everything suited to you,every suggestion is the best for your situtation even for leadership  instead of 'Common and Basic advice'  dont expext that something Brings me to Ivy league Everything depends your hardcore and maximising your every aspect Thanks to Azizbek  after this consultation my mindset completly changed.",
     messageLink: "https://t.me/pafeedback/18",
     image: "/ibrohim.jpg",
+  },
+  {
+    name: "Raxmatullayeva Madinabonu",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "I wanted to express my gratitude for the guidance you provided during our consultation session. It was incredibly insightful and helped me address many of the questions I had about building a strong extracurricular portfolio.Your detailed approach to analyzing each of my activities and suggesting ways to make them impactful and unique was exactly what I needed. I truly appreciate how you took the time to focus on each aspect, offering practical and creative ideas to help me stand out. The session has given me a clear understanding of my responsibilities and a well-defined to-do list, which includes the most important tasks for achieving my goals.Additionally, I found it valuable to learn about new programs and opportunities I had not known about before. This broadened my perspective and gave me fresh ideas on how I can further enhance my profile.Thanks to your advice, I now feel more confident and motivated to move forward with my plans. I greatly value the time and expertise you shared, and I'm excited to implement the suggestions you provided. Once again, thank you for your support—it was a pleasure working with you!",
+    messageLink: "https://t.me/pafeedback/2",
+  },
+  {
+    name: "Azizbek Burkhanov ",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "i'm glad for the consultation and the ideas you provided me to develop my ECs and Honours. Before the cons i didn't even think to look at my ECs at all larger scale and develop them into a bigger activities. Thank you for your help and time!!",
+    messageLink: "https://t.me/pafeedback/5",
+  },
+  {
+    name: "Atabekov Amirbek",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "I really appreciate our consultation - it was incredibly helpful! You showed me a clear way to make my college portfolio stand out, and your insights about my passion project and the research program allowed me to take a fresh look at the situation. Your recommendations really inspired me, and now I feel much more confident in my approach. I am grateful for your guidance and will try my best to get into uni. And you are the person that inspires me to keep going.",
+    messageLink: "https://t.me/pafeedback/9",
+  },
+  {
+    name: "Rajabova Bibinur",
+    location: "Khorezm, Uzbekistan",
+    rating: 5,
+    comment:
+      "I really want to thank you for the meeting. That was really helpful for boosting my portfolio. I got really valuable insights, especially about doing research, internships, and launching my passion project. I was a bit confused about how to manage everything at the same time because I am a gap year student.I hope I can do amazing extracurriculars by the guide you gave me. I appreciate it. Good luck with your future!",
+    messageLink: "https://t.me/pafeedback/11",
+  },
+  {
+    name: "Saydullayeva Irodabonu",
+    location: "Surkhondaryo, Uzbekistan",
+    rating: 5,
+    comment:
+      "Mr.Azizbek! I just wanted to say a huge thank you for your incredible guidance during our consultation. Your insights truly helped me see my portfolio and application from a new perspective, and I now feel much more confident in my direction. I really appreciate your thoughtful advice and the way you broke things down so clearly. Your support means a lot, and I’m grateful for the time and effort you put into helping me. Looking forward to putting your advice into action!",
+    messageLink: "https://t.me/pafeedback/13",
+  },
+  {
+    name: "Mirsaidov Mirsaid",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "This consultation helped me boost my confidence regarding university applications and motivated me to keep improving my portfolio in all aspects. I really appreciate how realistically you assess each student’s situation and provide valuable advice on enhancing their portfolio and achievements. Even though I’m in 9th grade, your consultation helped me understand the strengths and weaknesses of my portfolio. I highly recommend your consultations, especially for 10th and 11th graders who need an objective evaluation of their university portfolio. I am truly grateful to you for your motivation and support!",
+    messageLink: "https://t.me/pafeedback/16",
   },
 ];
 
