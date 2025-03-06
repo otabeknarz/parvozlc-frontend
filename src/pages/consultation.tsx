@@ -1,10 +1,178 @@
 import { motion, useAnimation, useScroll, useSpring } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Avatar, Button } from "@nextui-org/react";
 
 import { title, subtitle } from "@/components/primitives.ts";
 import DefaultLayout from "@/layouts/default";
+
+// Define testimonial data outside the component
+interface Testimonial {
+  name: string;
+  location: string;
+  rating: number;
+  comment: string;
+  messageLink: string;
+  image?: string;
+}
+
+const testimonialData: Testimonial[] = [
+  {
+    name: "Raxmatullayeva Madinabonu",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "I wanted to express my gratitude for the guidance you provided during our consultation session. It was incredibly insightful and helped me address many of the questions I had about building a strong extracurricular portfolio.Your detailed approach to analyzing each of my activities and suggesting ways to make them impactful and unique was exactly what I needed. I truly appreciate how you took the time to focus on each aspect, offering practical and creative ideas to help me stand out. The session has given me a clear understanding of my responsibilities and a well-defined to-do list, which includes the most important tasks for achieving my goals.Additionally, I found it valuable to learn about new programs and opportunities I had not known about before. This broadened my perspective and gave me fresh ideas on how I can further enhance my profile.Thanks to your advice, I now feel more confident and motivated to move forward with my plans. I greatly value the time and expertise you shared, and I'm excited to implement the suggestions you provided. Once again, thank you for your support—it was a pleasure working with you!",
+    messageLink: "https://t.me/pafeedback/2",
+  },
+  {
+    name: "Sevinch Elmuradova",
+    location: "Bukhara, Uzbekistan",
+    rating: 5,
+    comment:
+      "The consultation is definitely worth investing your money in! honestly, i got a lot information and ideas to accelerate my portfolio, thanks to mr. Azizbek's personalized approach. it really did exceed my expectations. thank u!",
+    messageLink: "https://t.me/pafeedback/3",
+    image: "/sevinch.jpg",
+  },
+  {
+    name: "Nuriddinov Abdulhamid",
+    location: "Sirdaryo, Uzbekistan",
+    rating: 5,
+    comment:
+      "Thank you very much for such an amazing consultation. At the beginning, I was stressed that 50 minutes wouldn't be enough. However, because you took notes beforehand and managed the time very efficiently, I got answers to all of my questions for which I'm very thankful. Although it was not a problem in my case, I noticed that you speak faster than the average human can understand, so my only suggestion is to ask the person if they are comfortable with your speed and language. Again, thank you for your support!",
+    messageLink: "https://t.me/pafeedback/4",
+    image: "/abdulhamid.jpg",
+  },
+  {
+    name: "Azizbek Burkhanov ",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "i'm glad for the consultation and the ideas you provided me to develop my ECs and Honours. Before the cons i didn't even think to look at my ECs at all larger scale and develop them into a bigger activities. Thank you for your help and time!!",
+    messageLink: "https://t.me/pafeedback/5",
+  },
+  {
+    name: "Laziza Ikromova",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "Thank you very much for the consultation. this is worth buying , because it was obvious that you were prepared and took notes. The session gave me ideas on how to improve my portfolio. Thanks again for your support and help",
+    messageLink: "https://t.me/pafeedback/6",
+    image: "/laziza.jpg",
+  },
+  {
+    name: "Rustamboyov Behruz",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "Aziz aka I really appreciate the work you've done. While talking with you I even didn't notice how time has passed. I'm really grateful to have bought your consultation, which is affordable and superior to the other ones. You showed me the true path that can lead me to achieve my goals and build strong portfolio. Frankly, I can't express the feelings I've procured from the consultation, just ineffable. Further, you gave an exceptional motivation for me. Thank you so much. Glad to meet you!",
+    messageLink: "https://t.me/pafeedback/7",
+    image: "/behruz.jpg",
+  },
+  {
+    name: "Qudratova Muyassar",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "I just wanted to thank you so much for all your help in improving my portfolio for my college application. Your advice and expertise truly made a difference, and I’m beyond grateful for the time and effort you dedicated to guiding me. The impact you’ve had on my work is huge, and I couldn’t have done it without you. Wishing you all the best as you begin your studies at Harvard.) I’m sure you’ll do amazing things there, and I’m excited to see where your journey takes you. 🥹Thanks again for everything! Your consultation is THE BEST✨✨✨✨✨✨✨✨✨✨",
+    messageLink: "https://t.me/pafeedback/8",
+    image: "/muyassar.jpg",
+  },
+  {
+    name: "Atabekov Amirbek",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "I really appreciate our consultation - it was incredibly helpful! You showed me a clear way to make my college portfolio stand out, and your insights about my passion project and the research program allowed me to take a fresh look at the situation. Your recommendations really inspired me, and now I feel much more confident in my approach. I am grateful for your guidance and will try my best to get into uni. And you are the person that inspires me to keep going.",
+    messageLink: "https://t.me/pafeedback/9",
+  },
+  {
+    name: "Ravshanbekov Jamshidbek",
+    location: "Namangan, Uzbekistan",
+    rating: 5,
+    comment:
+      "Wow. That was amazing. I got all the useful insights, ideas. Thank you very much for sparing time to give advice and guide me. I wish all the best for you, your team, your family. You helped a lot!! 👍",
+    messageLink: "https://t.me/pafeedback/10",
+    image: "/jamshidbek.jpg",
+  },
+  {
+    name: "Rajabova Bibinur",
+    location: "Khorezm, Uzbekistan",
+    rating: 5,
+    comment:
+      "I really want to thank you for the meeting. That was really helpful for boosting my portfolio. I got really valuable insights, especially about doing research, internships, and launching my passion project. I was a bit confused about how to manage everything at the same time because I am a gap year student.I hope I can do amazing extracurriculars by the guide you gave me. I appreciate it. Good luck with your future!",
+    messageLink: "https://t.me/pafeedback/11",
+  },
+  {
+    name: "Abdulahad Ne'matjonov",
+    location: "Fergana, Uzbekistan",
+    rating: 5,
+    comment: `I really appreciate the feedback you gave during the consultation. I got new insights about extracurricular activities and honors. 
+
+It's my 2nd gap year already and I would've missed so many opportunities if I did not take this consultation. I got all of the answers for my questions.
+
+Great tip I got about activities is giving the following questions:
+— Do I love it?
+— Do I learn from it?
+— Does it impact others?
+
+Really loved it and looking forward to working with Azizbek in the near future`,
+    messageLink: "https://t.me/pafeedback/12",
+    image: "/abdulahad.jpg",
+  },
+  {
+    name: "Saydullayeva Irodabonu",
+    location: "Surkhondaryo, Uzbekistan",
+    rating: 5,
+    comment:
+      "Mr.Azizbek! I just wanted to say a huge thank you for your incredible guidance during our consultation. Your insights truly helped me see my portfolio and application from a new perspective, and I now feel much more confident in my direction. I really appreciate your thoughtful advice and the way you broke things down so clearly. Your support means a lot, and I’m grateful for the time and effort you put into helping me. Looking forward to putting your advice into action!",
+    messageLink: "https://t.me/pafeedback/13",
+  },
+  {
+    name: "Elif Akhmedova",
+    location: "Florida, USA",
+    rating: 5,
+    comment:
+      "My consultation was incredibly insightful, and I highly recommend it to anyone seeking guidance. The session helped me gain a clearer understanding of where I stand with my portfolio, with specific tips on how to improve it and accelerate its development. We also discussed the best timing for me to take the SAT and IELTS, which was really helpful in planning my next steps. In addition, we explored programs that align with my major and personal interests, which has opened up exciting opportunities for me. Together, we also made the important decision on choosing my major, and we discussed internship opportunities that will help me gain valuable experience. I’m grateful for this opportunity, and I feel much more confident moving forward with a well-rounded plan!",
+    messageLink: "https://t.me/pafeedback/14",
+    image: "/elif.jpg",
+  },
+  {
+    name: "Feruza Sa'dullayeva",
+    location: "Bukhara, Uzbekistan",
+    rating: 5,
+    comment:
+      "Hi I am so glad that I took a lot of information in the consultation .I would really recommend this to others who also wanna get into ivy s and have no idea about what to do. Moreover, I got solid answers to all of my questions. I am sure it will definitely come handy .Thanks a lot ❤️‍🔥",
+    messageLink: "https://t.me/pafeedback/15",
+    image: "/feruza.jpg",
+  },
+  {
+    name: "Mirsaidov Mirsaid",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "This consultation helped me boost my confidence regarding university applications and motivated me to keep improving my portfolio in all aspects. I really appreciate how realistically you assess each student’s situation and provide valuable advice on enhancing their portfolio and achievements. Even though I’m in 9th grade, your consultation helped me understand the strengths and weaknesses of my portfolio. I highly recommend your consultations, especially for 10th and 11th graders who need an objective evaluation of their university portfolio. I am truly grateful to you for your motivation and support!",
+    messageLink: "https://t.me/pafeedback/16",
+  },
+  {
+    name: "Bobomurod, Fazliddinov",
+    location: "Samarkand, Uzbekistan",
+    rating: 5,
+    comment:
+      "I liked all the advice you gave and the discussions we had. Basically, I draw a whole map for my next year. Initially, I was unsure what to do for the next year since I am nearly done with IELTS and SAT. Yet, after all the discussions, I made up my mind to create all the projects step by step, and took notes of where to start and what to do. Even, I am opening myself to new skills that I didn't come up with before. I appreciate the time you allocated to our chat. Thank you 🫡",
+    messageLink: "https://t.me/pafeedback/17",
+    image: "/bobomurod.jpg",
+  },
+  {
+    name: "Ibrohim Ismailov",
+    location: "Tashkent, Uzbekistan",
+    rating: 5,
+    comment:
+      "Assalomu aleykum everyone honestly it was first time  I participated in this kind of consultattion  and  it is just IMPRRESSIVE .why? because everytime you spend Here or every piece of advice canʼt be find on the internet.Everything suited to you,every suggestion is the best for your situtation even for leadership  instead of 'Common and Basic advice'  dont expext that something Brings me to Ivy league Everything depends your hardcore and maximising your every aspect Thanks to Azizbek  after this consultation my mindset completly changed.",
+    messageLink: "https://t.me/pafeedback/18",
+    image: "/ibrohim.jpg",
+  },
+];
 
 export const FadeInWhenVisible: React.FC<{
   children: React.ReactNode;
@@ -103,6 +271,141 @@ const ScrollProgressBar = () => {
           "0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3), 0 0 30px rgba(236, 72, 153, 0.2)",
       }}
     />
+  );
+};
+
+// Define the TestimonialSection component before it's used
+interface TestimonialSectionProps {
+  testimonials: Testimonial[];
+}
+
+const TestimonialSection: React.FC<TestimonialSectionProps> = ({
+  testimonials,
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const initialCount = 3; // Number of testimonials to show initially
+
+  const displayedTestimonials = isExpanded
+    ? testimonials
+    : testimonials.slice(0, initialCount);
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
+        {displayedTestimonials.map((testimonial, index) => (
+          <motion.div
+            key={index}
+            className="h-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: index * 0.1,
+              duration: 0.5,
+            }}
+          >
+            <a
+              href={testimonial.messageLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full"
+            >
+              <motion.div
+                className="bg-white/80 dark:bg-gray-800/80 rounded-lg p-3 sm:p-4 shadow-sm hover:shadow transition-shadow duration-200 group h-full flex flex-col"
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Avatar
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <div className="overflow-hidden">
+                        <h4 className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base truncate">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate">
+                          {testimonial.location}
+                        </p>
+                      </div>
+                      <svg
+                        className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity ml-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-2 sm:mt-3 flex-grow text-gray-600 dark:text-gray-300 line-clamp-3 sm:line-clamp-4 text-xs sm:text-sm">
+                  {testimonial.comment.slice(0, 150)}...
+                </p>
+
+                <div className="mt-2 sm:mt-3 flex items-center justify-between pt-2 sm:pt-3 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex gap-0.5 sm:gap-1">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <div className="flex items-center text-xs sm:text-sm text-blue-500 whitespace-nowrap">
+                    <svg
+                      className="w-3 h-3 mr-1 text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.25 17.5v-4.75h-2.5v4.75h-3.75l5-5 5 5h-3.75zm0-11v4.75h2.5V6.5h3.75l-5-5-5 5h3.75z" />
+                    </svg>
+                    <span className="hidden sm:inline">See on</span> Telegram
+                  </div>
+                </div>
+              </motion.div>
+            </a>
+          </motion.div>
+        ))}
+      </div>
+
+      {testimonials.length > initialCount && (
+        <motion.button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-8 flex flex-col items-center justify-center focus:outline-none group"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 mb-2 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+            {isExpanded ? "Show Less" : "Show More"}
+          </span>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-md group-hover:shadow-lg transition-all">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`w-5 h-5 transition-transform duration-300 ${
+                isExpanded ? "rotate-180" : ""
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </motion.button>
+      )}
+    </div>
   );
 };
 
@@ -680,149 +983,21 @@ export default function ConsultationPage() {
               </div>
             </FadeInWhenVisible>
 
-            {/* Rates section */}
+            {/* What students say section */}
             <FadeInWhenVisible variant="scale">
               <div className="flex flex-col w-full mt-16 sm:mt-24 lg:mt-32">
                 <h2
                   className={title({
                     color: "violet",
                     className:
-                      "text-center text-4xl sm:text-5xl lg:text-6xl mb-16 sm:mb-24 font-medium tracking-tight bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 dark:from-blue-400 dark:via-violet-400 dark:to-pink-400 bg-clip-text text-transparent",
+                      "text-center text-3xl sm:text-4xl lg:text-5xl mb-6 sm:mb-12 lg:mb-16 font-medium tracking-tight bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 dark:from-blue-400 dark:via-violet-400 dark:to-pink-400 bg-clip-text text-transparent",
                   })}
                 >
                   What students say
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-                  {[
-                    {
-                      name: "Raxmatullayeva Madinabonu",
-                      location: "Tashkent, Uzbekistan",
-                      rating: 5,
-                      comment:
-                        "I wanted to express my gratitude for the guidance you provided during our consultation session. It was incredibly insightful and helped me address many of the questions I had about building a strong extracurricular portfolio.Your detailed approach to analyzing each of my activities and suggesting ways to make them impactful and unique was exactly what I needed. I truly appreciate how you took the time to focus on each aspect, offering practical and creative ideas to help me stand out. The session has given me a clear understanding of my responsibilities and a well-defined to-do list, which includes the most important tasks for achieving my goals.Additionally, I found it valuable to learn about new programs and opportunities I had not known about before. This broadened my perspective and gave me fresh ideas on how I can further enhance my profile.Thanks to your advice, I now feel more confident and motivated to move forward with my plans. I greatly value the time and expertise you shared, and I’m excited to implement the suggestions you provided. Once again, thank you for your support—it was a pleasure working with you!",
-                      messageLink: "https://t.me/pafeedback/2",
-                    },
-                    {
-                      name: "Sevinch Elmuradova",
-                      location: "Bukhara, Uzbekistan",
-                      rating: 5,
-                      comment:
-                        "The consultation is definitely worth investing your money in! honestly, i got a lot information and ideas to accelerate my portfolio, thanks to mr. Azizbek's personalized approach. it really did exceed my expectations. thank u!",
-                      messageLink: "https://t.me/pafeedback/3",
-                    },
-                    {
-                      name: "Nuriddinov Abdulhamid",
-                      location: "Sirdaryo, Uzbekistan",
-                      rating: 5,
-                      comment:
-                        "Thank you very much for such an amazing consultation. At the beginning, I was stressed that 50 minutes wouldn't be enough. However, because you took notes beforehand and managed the time very efficiently, I got answers to all of my questions for which I'm very thankful. Although it was not a problem in my case, I noticed that you speak faster than the average human can understand, so my only suggestion is to ask the person if they are comfortable with your speed and language. Again, thank you for your support!",
-                      messageLink: "https://t.me/pafeedback/4",
-                    },
-                    {
-                      name: "Azizbek Burkhanov ",
-                      location: "Tashkent, Uzbekistan",
-                      rating: 5,
-                      comment:
-                        "i’m glad for the consultation and the ideas you provided me to develop my ECs and Honours. Before the cons i didn’t even think to look at my ECs at all larger scale and develop them into a bigger activities. Thank you for your help and time!!",
-                      messageLink: "https://t.me/pafeedback/5",
-                    },
-                    {
-                      name: "Laziza Ikromova",
-                      location: "Tashkent, Uzbekistan",
-                      rating: 5,
-                      comment:
-                        "Thank you very much for the consultation. this is worth buying , because it was obvious that you were prepared and took notes. The session gave me ideas on how to improve my portfolio. Thanks again for your support and help",
-                      messageLink: "https://t.me/pafeedback/6",
-                    },
-                    {
-                      name: "Rustamboyov Behruz",
-                      location: "Tashkent, Uzbekistan",
-                      rating: 5,
-                      comment:
-                        "Aziz aka I really appreciate the work you've done. While talking with you I even didn't notice how time has passed. I'm really grateful to have bought your consultation, which is affordable and superior to the other ones. You showed me the true path that can lead me to achieve my goals and build strong portfolio. Frankly, I can't express the feelings I've procured from the consultation, just ineffable. Further, you gave an exceptional motivation for me. Thank you so much. Glad to meet you!",
-                      messageLink: "https://t.me/pafeedback/7",
-                    },
-                  ].map((testimonial, index) => (
-                    <motion.div
-                      key={index}
-                      className="h-full"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <a
-                        href={testimonial.messageLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block h-full"
-                      >
-                        <motion.div
-                          className="bg-white/80 dark:bg-gray-800/80 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group h-full flex flex-col"
-                          whileHover={{ scale: 1.02 }}
-                        >
-                          <div className="flex items-start gap-4">
-                            <Avatar
-                              alt={testimonial.name}
-                              className="w-12 h-12 rounded-full bg-gray-100"
-                            />
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                    {testimonial.name}
-                                  </h4>
-                                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                                    {testimonial.location}
-                                  </p>
-                                </div>
-                                <svg
-                                  className="w-5 h-5 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
-                                  fill="currentColor"
-                                  viewBox="0 0 20 20"
-                                >
-                                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-
-                          <p className="mt-4 flex-grow text-gray-600 dark:text-gray-300">
-                            {testimonial.comment.slice(0, 300)}...
-                          </p>
-
-                          <div className="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                            <div className="flex gap-1">
-                              {Array.from({ length: testimonial.rating }).map(
-                                (_, i) => (
-                                  <svg
-                                    key={i}
-                                    className="w-5 h-5 text-yellow-400"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-                                )
-                              )}
-                            </div>
-                            <div className="flex items-center text-sm text-blue-500">
-                              <svg
-                                className="w-4 h-4 mr-1"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.25 17.5v-4.75h-2.5v4.75h-3.75l5-5 5 5h-3.75zm0-11v4.75h2.5V6.5h3.75l-5-5-5 5h3.75z" />
-                              </svg>
-                              See on Telegram
-                            </div>
-                          </div>
-                        </motion.div>
-                      </a>
-                    </motion.div>
-                  ))}
+                <div className="px-2 sm:px-4 w-full">
+                  <TestimonialSection testimonials={testimonialData} />
                 </div>
               </div>
             </FadeInWhenVisible>
